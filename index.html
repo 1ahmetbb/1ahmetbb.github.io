@@ -3,66 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Projesi</title>
+    <title>YMGK - AR Projesi</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
+
         header {
+            background: linear-gradient(to right, #4CAF50, #8BC34A);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .menu button {
+            background: white;
+            border: 2px solid #4CAF50;
+            color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .menu button:hover {
             background: #4CAF50;
             color: white;
-            padding: 10px 15px;
-            text-align: center;
-        }
-        h1, h2, h3 {
-            text-align: center;
-        }
-        .container {
-            margin: 20px auto;
-            max-width: 800px;
-        }
-        img {
-            width: 100%;
-            max-width: 700px;
-            display: block;
-            margin: 10px auto;
-        }
-        iframe {
-            width: 100%;
-            border: none;
-            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>AR Projesi</h1>
+        <h1>YMGK - AR Projesi</h1>
     </header>
 
-    <div class="container">
-        <h2>Diyagramlar</h2>
-
-        <div>
-            <h3>Class Diagram</h3>
-            <img src="diagrams/class.png" alt="Class Diagram">
-        </div>
-
-        <div>
-            <h3>Use Case Diagram</h3>
-            <img src="diagrams/useCase.png" alt="Use Case Diagram">
-        </div>
-
-        <div>
-            <h3>Activity Diagram</h3>
-            <img src="diagrams/activity.png" alt="Activity Diagram">
-        </div>
-
-        <h2>Trello Pano</h2>
-
-        <p>Panoya ulaşmak için <a href="https://trello.com/b/8DNXTj6Z" target="_blank">buraya tıklayın</a>.</p>
+    <div class="menu">
+        <button onclick="window.location.href='./bal-petegi/index.html'">Bal Petegi</button>
+        <button onclick="window.location.href='./sut-miktari/index.html'">Süt Miktarları</button>
+        <button onclick="window.location.href='./sakiz-makinesi/index.html'">Sakız Makinesi</button>
     </div>
 </body>
 </html>
