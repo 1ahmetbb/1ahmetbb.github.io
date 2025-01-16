@@ -1,154 +1,239 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YMGK - AR Projesi</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
 
-        header {
-            background: linear-gradient(to right, #4CAF50, #8BC34A);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      header {
+        background: linear-gradient(to right, #4caf50, #8bc34a);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
 
-        .menu {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
-        }
+      .menu {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+      }
 
-        .menu button {
-            background: white;
-            border: 2px solid #4CAF50;
-            color: #4CAF50;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
+      .menu button {
+        background: white;
+        border: 2px solid #4caf50;
+        color: #4caf50;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
 
-        .menu button:hover {
-            background: #4CAF50;
-            color: white;
-        }
+      .menu button:hover {
+        background: #4caf50;
+        color: white;
+      }
 
-        .description {
-            margin: 20px auto;
-            max-width: 800px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #555;
-        }
+      .description {
+        margin: 20px auto;
+        max-width: 800px;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #555;
+      }
 
-        .description h2 {
-            text-align: center;
-            color: #4CAF50;
-            margin-bottom: 20px;
-        }
-        .description p {
-    margin-bottom: 15px;
-}
+      .description h2 {
+        text-align: center;
+        color: #4caf50;
+        margin-bottom: 20px;
+      }
+      .description p {
+        margin-bottom: 15px;
+      }
+
+      #qr-button {
+        background: white;
+        border: 2px solid #8bc34a;
+        color: #8bc34a;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+
+      #qr-button:hover {
+        background: #8bc34a;
+        color: white;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>YMGK - AR Projesi</h1>
+      <h1>YMGK - AR Projesi</h1>
     </header>
 
     <div class="menu">
-        <button onclick="window.location.href='./bal-petegi/index.html'">Bal Petegi</button>
-        <button onclick="window.location.href='./sut-miktari/index.html'">Süt Miktarları</button>
-        <button onclick="window.location.href='./sakiz-makinesi/index.html'">Sakız Makinesi</button>
-        <button onclick="window.location.href='./swot-analizi/index.html'">SWOT Analizi</button>
+      <button onclick="window.location.href='./bal-petegi/index.html'">
+        Bal Petegi
+      </button>
+      <button onclick="window.location.href='./sut-miktari/index.html'">
+        Süt Miktarları
+      </button>
+      <button onclick="window.location.href='./sakiz-makinesi/index.html'">
+        Sakız Makinesi
+      </button>
+      <button onclick="window.location.href='./swot-analizi/index.html'">
+        SWOT Analizi
+      </button>
+      <button id="qr-button">Uygulamayı Çalıştır</button>
+    </div>
 
+    <div
+      id="qr-section"
+      style="display: none; text-align: center; margin-top: 20px"
+    >
+      <img src="./qr.png" alt="QR Kodu" style="width: 200px; height: 200px" />
+      <p style="margin-top: 15px; font-size: 16px; color: #555">
+        Uygulamayı çalıştırmak için yukarıdaki QR kodunu okutun. Ardından
+        uygulamayı indirip bal peteği kartını okutarak oyuna başlayabilirsiniz.
+      </p>
     </div>
 
     <div class="description">
-        <h2>Artırılmış Gerçeklik Nedir?</h2>
-        <p>
-            Artırılmış Gerçeklik, gerçek dünyayı dijital bilgilerle zenginleştirerek kullanıcılara daha zengin bir deneyim sunan bir teknoloji türüdür. 
-            Temelde, fiziksel dünyayı görmemizi sağlayan bir arayüz üzerine bilgi, grafik veya ses gibi dijital içeriklerin eklenmesini içerir. 
-            Böylece, kullanıcılar gerçek dünya ile dijital dünya arasında etkileşimde bulunabilirler. Bu kısa açıklamadan sonra bir sonraki 
-            aşamalarda size bu büyüleyici dünyanın kapılarını aralamak istiyorum.
-        </p>
-        <h2>AR Neden Bu Kadar Etkileyici?</h2>
-        <p>
-            AR, adından da anlaşılacağı gibi, gerçek dünyayı dijital bir patırtıyla süsleme işi. Akıllı telefonlarımız, tabletlerimiz veya hatta 
-            özel AR gözlüklerimiz sayesinde çevremizi bir oyun alanına, öğrenme laboratuvarına ya da gerçeküstü bir eğlence mekanına dönüştürüyoruz. 
-            Bu sadece bir teknoloji değil, aynı zamanda gerçekle dijitalin muhteşem dansını izlemek gibi bir şey. Şu anda gündelik hayatımızın 
-            her yerine inmiş olmasa da çok yakın gelecekte AR uygulamaları her yerde karşımıza çıkacak gibi gözüküyor. Bugünlerde dışarı çıktığımızda, 
-            işe gittiğimizde, okulda projeler yaparken nasıl “yapay zeka” terimini sık sık duyuyorsak çok ama çok kısa bir zamanda da 
-            “arttırılmış gerçeklik” teknolojisi gündelik yaşamımızın ortasında olacak.
-        </p>
-        <h2>AR Nasıl Çalışır?</h2>
-        <p>
-            Tamam, hazırsanız bilgi bombardımanı başlıyor! AR, cihazlarımızın (akıllı telefonlar, tabletler, gözlükler) 
-            kameraları ve sensörleri aracılığıyla çevremizi algılar. Sonra, bu bilgileri işler ve gerçek dünyayı dijital içeriklerle zenginleştirir.
-            Basit bir ifadeyle, etrafımızı bir tıklama uzaklığında bir sihirbazın değneğiyle dönüştürebiliyoruz.
-            Alacağımız koltuk takımı,tablolar odamızı birden süsleyebiliyor. Uzun süredir almak istediğiniz ayakkabıyı 
-            ayaklarınızda görmeniz ise bir tık kadar uzak kalıyor. Ya da E-Ticaret sektörünün en büyük sorunlarından olan iade problemlerinin baş 
-            ağrıtıcı beden sorunları bu teknoloji ile çözüme kavuşabilir.
-        </p>
-        <h2>Nerelerde Kullanılıyor ?</h2>
-        <p>
-            <b>Eğitim:</b>
-            Tarih dersleri artık sıkıcı değil, tam tersine tarihi olayları canlandırmak AR sayesinde bir oyun halini alıyor. 
-            Düşünsenize Mohaç savaşını sınıfın ortasında izliyorsunuz, kesinlikle harika olurdu.
-        </p>
-        <p>
-            <b>Sağlık:</b>
-            Hasta tedavisi ve cerrahi planlama konusunda AR’nin ne kadar büyük bir potansiyel taşıdığını düşünün.
-            Anatomik yapıları inceleyebilmek, birçok sağlık profesyonelinin hayalini süsleyen bir şey.
-        </p>
-        <p>
-            <b>Perakende:</b> Mağaza içi deneyimleri canlandırmak, ürünleri sanal olarak inceleme imkanı sunmak,
-            müşteri memnuniyetini artırmak — AR perakende dünyasını baştan aşağı değiştiriyor.
-        </p>
-        <p>
-            <b>Oyun ve Eğlence:</b> Tabii ki, Pokémon GO’nun bize gösterdiği gibi, AR oyunları sadece çocuklar için değil, her yaştan insan için bir zevk kaynağı.
-            Pokémon GO akımı ise o 2016 yazın da kaldı ve o günden bu güne hayatımızda çok şey değişti dostlarım.
-        </p>
-        <p>
-            <b>Influencer Pazarlaması:</b> Instagram ve Tiktok filtrelerini düşünün, şimdi bir de bunları AR ile düşünün. Markalar, AR filtreleriyle milyonlarca etkileşim alırken,
-            biz de yaratıcılığımızı konuşturuyoruz.Bu tarafta şirketlerin yaptığı yatırımları bir sonraki yazımda ele almak istiyorum. 
-            Çünkü pazarlama stratejilerini değiştirecek ve çok fazla insana ulaşmayı sağlayacak bu teknoloji, bizi nasıl etkileyecek çok merak ediyorum.
-        </p>
-        <p>
-            <b>Endüstri:</b> Aslında en çok ilgilendiğim alanlardan birisi bu kısım, endüstride çok fazla kullanılmaya başlanan arttırılmış gerçeklik uygulamaları teknolojinin nimetlerinden
-            faydalanmamıza yol açıyor. Birçok işletme kalite kontrol süreçlerinde, eğitim, üretim gibi bölümlerde bu teknolojiden faydalanıp süreçlerini geliştiriyorlar.
-        </p>
+      <h2>Artırılmış Gerçeklik Nedir?</h2>
+      <p>
+        Artırılmış Gerçeklik, gerçek dünyayı dijital bilgilerle zenginleştirerek
+        kullanıcılara daha zengin bir deneyim sunan bir teknoloji türüdür.
+        Temelde, fiziksel dünyayı görmemizi sağlayan bir arayüz üzerine bilgi,
+        grafik veya ses gibi dijital içeriklerin eklenmesini içerir. Böylece,
+        kullanıcılar gerçek dünya ile dijital dünya arasında etkileşimde
+        bulunabilirler. Bu kısa açıklamadan sonra bir sonraki aşamalarda size bu
+        büyüleyici dünyanın kapılarını aralamak istiyorum.
+      </p>
+      <h2>AR Neden Bu Kadar Etkileyici?</h2>
+      <p>
+        AR, adından da anlaşılacağı gibi, gerçek dünyayı dijital bir patırtıyla
+        süsleme işi. Akıllı telefonlarımız, tabletlerimiz veya hatta özel AR
+        gözlüklerimiz sayesinde çevremizi bir oyun alanına, öğrenme
+        laboratuvarına ya da gerçeküstü bir eğlence mekanına dönüştürüyoruz. Bu
+        sadece bir teknoloji değil, aynı zamanda gerçekle dijitalin muhteşem
+        dansını izlemek gibi bir şey. Şu anda gündelik hayatımızın her yerine
+        inmiş olmasa da çok yakın gelecekte AR uygulamaları her yerde karşımıza
+        çıkacak gibi gözüküyor. Bugünlerde dışarı çıktığımızda, işe
+        gittiğimizde, okulda projeler yaparken nasıl “yapay zeka” terimini sık
+        sık duyuyorsak çok ama çok kısa bir zamanda da “arttırılmış gerçeklik”
+        teknolojisi gündelik yaşamımızın ortasında olacak.
+      </p>
+      <h2>AR Nasıl Çalışır?</h2>
+      <p>
+        Tamam, hazırsanız bilgi bombardımanı başlıyor! AR, cihazlarımızın
+        (akıllı telefonlar, tabletler, gözlükler) kameraları ve sensörleri
+        aracılığıyla çevremizi algılar. Sonra, bu bilgileri işler ve gerçek
+        dünyayı dijital içeriklerle zenginleştirir. Basit bir ifadeyle,
+        etrafımızı bir tıklama uzaklığında bir sihirbazın değneğiyle
+        dönüştürebiliyoruz. Alacağımız koltuk takımı,tablolar odamızı birden
+        süsleyebiliyor. Uzun süredir almak istediğiniz ayakkabıyı ayaklarınızda
+        görmeniz ise bir tık kadar uzak kalıyor. Ya da E-Ticaret sektörünün en
+        büyük sorunlarından olan iade problemlerinin baş ağrıtıcı beden
+        sorunları bu teknoloji ile çözüme kavuşabilir.
+      </p>
+      <h2>Nerelerde Kullanılıyor ?</h2>
+      <p>
+        <b>Eğitim:</b>
+        Tarih dersleri artık sıkıcı değil, tam tersine tarihi olayları
+        canlandırmak AR sayesinde bir oyun halini alıyor. Düşünsenize Mohaç
+        savaşını sınıfın ortasında izliyorsunuz, kesinlikle harika olurdu.
+      </p>
+      <p>
+        <b>Sağlık:</b>
+        Hasta tedavisi ve cerrahi planlama konusunda AR’nin ne kadar büyük bir
+        potansiyel taşıdığını düşünün. Anatomik yapıları inceleyebilmek, birçok
+        sağlık profesyonelinin hayalini süsleyen bir şey.
+      </p>
+      <p>
+        <b>Perakende:</b> Mağaza içi deneyimleri canlandırmak, ürünleri sanal
+        olarak inceleme imkanı sunmak, müşteri memnuniyetini artırmak — AR
+        perakende dünyasını baştan aşağı değiştiriyor.
+      </p>
+      <p>
+        <b>Oyun ve Eğlence:</b> Tabii ki, Pokémon GO’nun bize gösterdiği gibi,
+        AR oyunları sadece çocuklar için değil, her yaştan insan için bir zevk
+        kaynağı. Pokémon GO akımı ise o 2016 yazın da kaldı ve o günden bu güne
+        hayatımızda çok şey değişti dostlarım.
+      </p>
+      <p>
+        <b>Influencer Pazarlaması:</b> Instagram ve Tiktok filtrelerini düşünün,
+        şimdi bir de bunları AR ile düşünün. Markalar, AR filtreleriyle
+        milyonlarca etkileşim alırken, biz de yaratıcılığımızı konuşturuyoruz.Bu
+        tarafta şirketlerin yaptığı yatırımları bir sonraki yazımda ele almak
+        istiyorum. Çünkü pazarlama stratejilerini değiştirecek ve çok fazla
+        insana ulaşmayı sağlayacak bu teknoloji, bizi nasıl etkileyecek çok
+        merak ediyorum.
+      </p>
+      <p>
+        <b>Endüstri:</b> Aslında en çok ilgilendiğim alanlardan birisi bu kısım,
+        endüstride çok fazla kullanılmaya başlanan arttırılmış gerçeklik
+        uygulamaları teknolojinin nimetlerinden faydalanmamıza yol açıyor.
+        Birçok işletme kalite kontrol süreçlerinde, eğitim, üretim gibi
+        bölümlerde bu teknolojiden faydalanıp süreçlerini geliştiriyorlar.
+      </p>
     </div>
-    <div style="text-align: center; margin-top: 30px; padding: 10px; background-color: #f9f9f9; border-top: 1px solid #ddd;">
-        <p>
-            Bu yazı Medium'da bulunan <strong>Burak Öksüz</strong>'den alınmıştır. Tamamına ulaşmak için 
-            <a href="https://burakoksuz.medium.com/art%C4%B1r%C4%B1lm%C4%B1%C5%9F-ger%C3%A7eklik-augmented-reality-dijital-d%C3%BCnyayla-ger%C3%A7ekli%C4%9Fin-bulu%C5%9Ftu%C4%9Fu-nokta-d13b7ce7522e" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               style="color: #4CAF50; text-decoration: none; font-weight: bold;">
-               Artırılmış Gerçeklik: Dijital Dünya ve Gerçekliğin Buluştuğu Nokta
-            </a>.
-        </p>
+    <div
+      style="
+        text-align: center;
+        margin-top: 30px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-top: 1px solid #ddd;
+      "
+    >
+      <p>
+        Bu yazı Medium'da bulunan <strong>Burak Öksüz</strong>'den alınmıştır.
+        Tamamına ulaşmak için
+        <a
+          href="https://burakoksuz.medium.com/art%C4%B1r%C4%B1lm%C4%B1%C5%9F-ger%C3%A7eklik-augmented-reality-dijital-d%C3%BCnyayla-ger%C3%A7ekli%C4%9Fin-bulu%C5%9Ftu%C4%9Fu-nokta-d13b7ce7522e"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color: #4caf50; text-decoration: none; font-weight: bold"
+        >
+          Artırılmış Gerçeklik: Dijital Dünya ve Gerçekliğin Buluştuğu Nokta
+        </a>
+      </p>
     </div>
-</body>
+    <script>
+      document
+        .getElementById("qr-button")
+        .addEventListener("click", function () {
+          const qrSection = document.getElementById("qr-section");
+          if (
+            qrSection.style.display === "none" ||
+            qrSection.style.display === ""
+          ) {
+            qrSection.style.display = "block";
+          } else {
+            qrSection.style.display = "none";
+          }
+        });
+    </script>
+  </body>
 </html>
