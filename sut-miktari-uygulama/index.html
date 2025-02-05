@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Süt Miktarları Oyunu</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then(() => console.log("Service Worker Registered"));
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Oyunun Görseli -->
+    <div id="image-container">
+      <img src="assets/farm-illustration.png" alt="Süt Miktarları Oyunu" />
+    </div>
+
+    <!-- Başlık ve Hikaye -->
+    <h1>Süt Miktarları Oyunu</h1>
+    <p id="story">
+      Bir çiftçinin beş ineği var: Sultan, Tosun, Benekli, Şaşkın ve Garip.
+      Çiftçi, ineklerin günlük süt üretim miktarını tabloya yazmayı unutmuş. Tek
+      hatırladığı:
+    </p>
+    <ul id="hints">
+      <li>Sultan, Tosun'dan 1 ünite fazla süt veriyor.</li>
+      <li>Garip, Benekli ile aynı miktarda süt veriyor.</li>
+    </ul>
+    <p id="instructions">
+      Yukarıdaki ipuçlarını kullanarak süt miktarlarını doğru ineklerle
+      eşleştirin. Tüm ineklerin isimlerini tabloya yazdıktan sonra "Kontrol Et"
+      butonuna tıklayın.
+    </p>
+
+    <!-- Tablo ve Kontrol Butonları -->
+    <div id="game-board">
+      <table>
+        <thead>
+          <tr>
+            <th>İnek</th>
+            <th>Süt Miktarı (Ünite)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="text" class="cow-name" placeholder="İnek Adı" />
+            </td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" class="cow-name" placeholder="İnek Adı" />
+            </td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" class="cow-name" placeholder="İnek Adı" />
+            </td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" class="cow-name" placeholder="İnek Adı" />
+            </td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" class="cow-name" placeholder="İnek Adı" />
+            </td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <button id="check-btn">Kontrol Et</button>
+    <button id="reset-btn" style="display: none">Tekrar Oyna</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
