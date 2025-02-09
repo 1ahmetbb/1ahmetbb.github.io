@@ -35,8 +35,14 @@ Proje, aşağıdaki modüllerden oluşmaktadır:
 
 ---
 
-## Kurulum ve Çalıştırma
+## Çalıştırma
 
-1. Proje dosyalarını indirin veya klonlayın:
+1. Siteye gitmek icin:
    ```bash
-   git clone https://github.com/1ahmetbb/1ahmetbb.github.io
+   1ahmetbb.github.io
+
+2. YouTube Videoları
+    ```bash
+    'https://youtube.com/shorts/EWIj9p_W3fE?si=aeNOrSaRUsuHtbjm'
+
+    'https://youtube.com/shorts/1WW9YtpN7Rc?si=RLGP-Sdave5vUbzy'
