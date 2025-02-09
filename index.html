@@ -4,88 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YMGK - AR Projesi</title>
-    <style>
-      body {
-        font-family: "Arial", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
-      }
-
-      header {
-        background: linear-gradient(to right, #4caf50, #8bc34a);
-        color: white;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      header h1 {
-        margin: 0;
-        font-size: 2.5rem;
-      }
-
-      .menu {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin: 20px 0;
-      }
-
-      .menu button {
-        background: white;
-        border: 2px solid #4caf50;
-        color: #4caf50;
-        padding: 10px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: 0.3s;
-      }
-
-      .menu button:hover {
-        background: #4caf50;
-        color: white;
-      }
-
-      .description {
-        margin: 20px auto;
-        max-width: 800px;
-        padding: 20px;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        font-size: 1rem;
-        line-height: 1.6;
-        color: #555;
-      }
-
-      .description h2 {
-        text-align: center;
-        color: #4caf50;
-        margin-bottom: 20px;
-      }
-      .description p {
-        margin-bottom: 15px;
-      }
-
-      #qr-button {
-        background: white;
-        border: 2px solid #8bc34a;
-        color: #8bc34a;
-        padding: 10px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: 0.3s;
-      }
-
-      #qr-button:hover {
-        background: #8bc34a;
-        color: white;
-      }
-    </style>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header>
@@ -93,15 +12,7 @@
     </header>
 
     <div class="menu">
-      <button onclick="window.location.href='./bal-petegi/index.html'">
-        Bal Petegi
-      </button>
-      <button onclick="window.location.href='./sut-miktari/index.html'">
-        Süt Miktarları
-      </button>
-      <button onclick="window.location.href='./sakiz-makinesi/index.html'">
-        Sakız Makinesi
-      </button>
+      <button id="diagramlar-button">Diyagramlar</button>
       <button onclick="window.location.href='./swot-analizi/index.html'">
         SWOT Analizi
       </button>
@@ -109,16 +20,46 @@
       <button onclick="window.location.href='./sut-uygulama/index.html'">
         Süt Miktarı Uygulama
       </button>
+      <button onclick="window.location.href='./assets/lessons.xlsx'">
+        Teknolojik Hazırlık Seviyesi
+      </button>
+      <button onclick="window.open('https://youtube.com/shorts/EWIj9p_W3fE?si=aeNOrSaRUsuHtbjm', '_blank')">
+        YouTube Videoyu İzle
+      </button>
     </div>
 
-    <div
-      id="qr-section"
-      style="display: none; text-align: center; margin-top: 20px"
-    >
-      <img src="./qr.png" alt="QR Kodu" style="width: 200px; height: 200px" />
+    <div id="diagramlar-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Diyagramlar</h2>
+        <div class="modal-buttons">
+          <button onclick="window.location.href='./bal-petegi/index.html'">
+            Bal Petegi
+          </button>
+          <button onclick="window.location.href='./sut-miktari/index.html'">
+            Süt Miktarları
+          </button>
+          <button onclick="window.location.href='./sakiz-makinesi/index.html'">
+            Sakız Makinesi
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="qr-section" style="display: none; text-align: center; margin-top: 20px">
+      <img src="./assets/qr.png" alt="QR Kodu" style="width: 200px; height: 200px" />
       <p style="margin-top: 15px; font-size: 16px; color: #555">
-        Uygulamayı çalıştırmak için yukarıdaki QR kodunu okutun. Ardından
-        uygulamayı indirip süt miktarı kartını okutarak oyuna başlayabilirsiniz.
+        Uygulamayı çalıştırmak için yukarıdaki QR kodunu okutun.
+      </p>
+      <!-- Kartın Resmi -->
+      <img 
+        src="./assets/image.png" 
+        alt="Süt Kartı" 
+        style="width: 340px; height: 564px; margin-top: 20px; border: 1px solid #ddd; border-radius: 8px; display: block; margin-left: auto; margin-right: auto;" 
+      />
+      <!-- Açıklama Metni -->
+      <p style="margin-top: 15px; font-size: 16px; color: #555">
+        Açılan uygulamada yukarıdaki süt kartının resmini taratarak oyunu başlatabilirsiniz. Kartın doğru bir şekilde tarandığından emin olun!
       </p>
     </div>
 
@@ -237,6 +178,25 @@
             qrSection.style.display = "none";
           }
         });
+    </script>
+    <script>
+      const diagramlarButton = document.getElementById("diagramlar-button");
+      const modal = document.getElementById("diagramlar-modal");
+      const closeButton = document.querySelector(".close-button");
+
+      diagramlarButton.addEventListener("click", () => {
+        modal.style.display = "block";
+      });
+
+      closeButton.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
     </script>
   </body>
 </html>
